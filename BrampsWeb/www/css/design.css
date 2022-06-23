@@ -1,0 +1,9 @@
+﻿
+.hl {
+    border-left: 6px solid green;
+    width: auto;
+    position: absolute;
+    left: 50%;
+    margin-left: -3px;
+    top: 0;
+}

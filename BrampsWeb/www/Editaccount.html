@@ -1,0 +1,198 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Bramps</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="shortcut icon" type="image/jpg" href="myimages/favicon.ico" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload" onload="showLogin()">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+
+                <!-- Logo -->
+                <a href="Home.html" class="logo">
+                    <span class="symbol"><img src="myimages/Bramps Logo Transparent.png" alt="" /></span><span class="title">Bramps</span>
+                </a>
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="Home.html">Menu</a></li>
+                <li><a onclick="verifyLoginShoppingCart()">Shopping Cart</a></li>
+                <li><a href="Faqs.html">FAQs</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li id="accountrowbtn"><a onclick="verifyLoginMyAccount()">My Account</a></li>
+                <li id="loginrowbtn"><a id="loginbtn" href="Login.html">Login/Sign Up</a></li>
+                <li id="logoutrowbtn"><a id="logoutbtn" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <form action="#" method="post">
+                <div class="imgcontainer">
+                    <img src="myimages/Bramps Logo Transparent no border.png" alt="Avatar" class="avatar">
+                </div>
+                <div class="container">
+                    <h1>Edit Account</h1>
+
+                    <label for="name"><b>Edit Name</b></label>
+                    <input id="txtName" type="text" placeholder="Enter Name" name="name" required />
+
+                    <label for="contact"><b>Edit Contact</b></label>
+                    <input id="txtContact" type="text" placeholder="Enter Contact" name="contact" required />
+
+                    <label for="address"><b>Edit Address</b></label>
+                    <input id="txtAddress" type="text" placeholder="Enter Address" name="address" required />
+
+                    <a id="divEmpty" class="PWerror" hidden>Please enter all fields.</a>
+
+                    <div class="clearfix">
+                        <ul class="actions fit">
+                            <li><a href="Account.html" class="button fit">Cancel</a></li>
+                            <li><button id="btnEditAccount" type="button" class="signupbtn" onclick="btnEditAccount_OnClick()">Confirm</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/ricesuncheese" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://facebook.com/Risen.Cheese/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/ricemelonsuncheese/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- The 'async' attribute is needed for RequireJS to work in a Windows app -->
+    <script type="text/javascript" data-main="scripts/startup" src="lib/require.2.1.8.js" async></script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        window.onload;
+        document.getElementById('txtName').value = sessionStorage.getItem("Name");
+        document.getElementById('txtContact').value = sessionStorage.getItem("Contact");
+        document.getElementById('txtAddress').value = sessionStorage.getItem("Address");
+    </script>
+
+    <script>
+        function btnEditAccount_OnClick() {
+            var varEmail2 = sessionStorage.getItem("Email");
+            var varName = document.getElementById('txtName').value;
+            var varContact = document.getElementById('txtContact').value;
+            var varAddress = document.getElementById('txtAddress').value;
+            var varEmpty = document.getElementById('divEmpty');
+            if (varEmail2 == "" || varName == "" || varContact == "" || varAddress == "") {
+                varEmpty.style.display = "block";
+            }
+            else {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://192.168.1.6/Bramps/Service.svc/UpdateUserListParam',
+                    data:
+                    '{' +
+                    '"Email":"' + varEmail2 + '",' +
+                    '"Name":"' + varName + '",' +
+                    '"Contact":"' + varContact + '",' +
+                    '"Address":"' + varAddress + '",' +
+                    '}',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    processdata: true,
+                    success: function (result2) {
+                        sessionStorage.setItem("Name", varName);
+                        sessionStorage.setItem("Contact", varContact);
+                        sessionStorage.setItem("Address", varAddress);
+                        location.href = "Account.html";
+                    },
+                    error: function (msg) {
+                        alert(msg.responseText);
+                    }
+                });
+            }
+            
+        }
+    </script>
+    <script>
+        function verifyLoginShoppingCart() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Shoppingcart.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function verifyLoginMyAccount() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Account.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function logout() {
+            sessionStorage.clear();
+            localStorage.clear();
+            location.href = "Home.html";
+        }
+
+        function showLogin() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                document.getElementById("accountrowbtn").style.display = "block";
+                document.getElementById("logoutrowbtn").style.display = "block";
+                document.getElementById("loginrowbtn").style.display = "none";
+            }
+            else {
+                document.getElementById("accountrowbtn").style.display = "none";
+                document.getElementById("logoutrowbtn").style.display = "none";
+                document.getElementById("loginrowbtn").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

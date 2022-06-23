@@ -1,0 +1,201 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Bramps</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="css/login.css" />
+    <link rel="shortcut icon" type="image/jpg" href="myimages/favicon.ico" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload" onload="showLogin()">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+
+                <!-- Logo -->
+                <a href="Home.html" class="logo">
+                    <span class="symbol"><img src="myimages/Bramps Logo Transparent.png" alt="" /></span><span class="title">Bramps</span>
+                </a>
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="Home.html">Menu</a></li>
+                <li><a onclick="verifyLoginShoppingCart()">Shopping Cart</a></li>
+                <li><a href="Faqs.html">FAQs</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li id="accountrowbtn"><a onclick="verifyLoginMyAccount()">My Account</a></li>
+                <li id="loginrowbtn"><a id="loginbtn" href="Login.html">Login/Sign Up</a></li>
+                <li id="logoutrowbtn"><a id="logoutbtn" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <form action="#" method="post">
+                <div class="imgcontainer">
+                    <img src="myimages/Bramps Logo Transparent no border.png" alt="Avatar" class="avatar">
+                </div>
+                <div class="container">
+                    <h1>Retrieve Account</h1>
+                    <p>Please fill in this form to retrieve an account.</p>
+
+                    <label for="email"><b>Email</b></label>
+                    <input id="txtEmail" type="text" placeholder="Enter Email" name="email" required />
+
+                    <label for="psw-secret1"><b>What will you name your pet?</b></label>
+                    <input id="txtSecret1" type="text" placeholder="Enter Answer" name="psw-secret1" required />
+
+                    <label for="psw-secret2"><b>What is your most memorable date? Enter as MM/DD/YYYY</b></label>
+                    <input id="txtSecret2" type="text" placeholder="Enter Answer" name="psw-secret2" required />
+
+                    <label for="psw-secret3"><b>What place are you looking forward to visit?</b></label>
+                    <input id="txtSecret3" type="text" placeholder="Enter Answer" name="psw-secret3" required />
+                    <a id="divEmpty" class="PWerror" hidden>Please enter all fields. Secrets must be 6 characters or higher.</a>
+                    <a id="divEmpty2" class="PWerror" hidden>Credentials do not match.</a>
+
+                    <div class="clearfix">
+                        <ul class="actions fit">
+                            <li><a href="Login.html" class="button fit">Cancel</a></li>
+                            <li><button id="btnRecover" type="button" class="signupbtn" onclick="btnRecover_OnClick()">Confirm</button></li>
+                        </ul>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/ricesuncheese" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://facebook.com/Risen.Cheese/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/ricemelonsuncheese/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- The 'async' attribute is needed for RequireJS to work in a Windows app -->
+    <script type="text/javascript" data-main="scripts/startup" src="lib/require.2.1.8.js" async></script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        function btnRecover_OnClick() {
+            var varEmail = document.getElementById('txtEmail').value;
+            var varSecret1 = document.getElementById('txtSecret1').value;
+            var varSecret2 = document.getElementById('txtSecret2').value;
+            var varSecret3 = document.getElementById('txtSecret3').value;
+            var varEmpty = document.getElementById('divEmpty');
+            var varEmpty2 = document.getElementById('divEmpty2');
+            if (varEmail == "" || varSecret1 == "" || varSecret2 == "" || varSecret3 == "" || varSecret1.length < 6 || varSecret2.length < 6 || varSecret3.length < 6) {
+                varEmpty.style.display = "block";
+            }
+            else {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://192.168.1.6/Bramps/Service.svc/GetSecretListParam',
+                    data:
+                    '{' +
+                    '"Email":"' + varEmail + '"' +
+                    '}',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    processdata: true,
+                    success: function (result) {
+                        var varResult = '';
+                        var varArResult = result.GetSecretListParamResult;
+                        for (var intCtr in varArResult) {
+                            varResult += varArResult[intCtr].Email + ' ' + varArResult[intCtr].Secret1 + ' ' + varArResult[intCtr].Secret2 + ' ' + varArResult[intCtr].Secret3 + '\n';
+                        }
+                        if (varArResult[intCtr].Email == varEmail && varArResult[intCtr].Secret1 == varSecret1 && varArResult[intCtr].Secret2 == varSecret2 && varArResult[intCtr].Secret3 == varSecret3) {
+                            sessionStorage.setItem("EmailRecover", varEmail);
+                            location.href = "UpdateSecret.html";
+                        }
+                        else {
+                            varEmpty2.style.display = "block";
+                        }
+                    },
+                    error: function (msg) {
+                        alert('Error please re-enter.');
+                        location.href = "ForgotPw.html";
+                    }
+                });
+            }
+        }
+    </script>
+    <script>
+        function verifyLoginShoppingCart() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Shoppingcart.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function verifyLoginMyAccount() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Account.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function logout() {
+            sessionStorage.clear();
+            localStorage.clear();
+            location.href = "Home.html";
+        }
+
+        function showLogin() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                document.getElementById("accountrowbtn").style.display = "block";
+                document.getElementById("logoutrowbtn").style.display = "block";
+                document.getElementById("loginrowbtn").style.display = "none";
+            }
+            else {
+                document.getElementById("accountrowbtn").style.display = "none";
+                document.getElementById("logoutrowbtn").style.display = "none";
+                document.getElementById("loginrowbtn").style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

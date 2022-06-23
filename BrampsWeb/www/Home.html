@@ -1,0 +1,407 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Bramps</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="css/dropdown.css" />
+    <link rel="stylesheet" href="css/w3.css" />
+    <link rel="stylesheet" href="css/cart.css" />
+    <link rel="shortcut icon" type="image/jpg" href="myimages/favicon2.ico" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload" onload="showLogin(); clearCart();">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+
+                <!-- Logo -->
+                <a href="Home.html" class="logo">
+                    <span class="symbol"><img src="myimages/Bramps Logo Transparent.png" alt="" /></span><span class="title">Bramps</span>
+                </a>
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="Home.html">Menu</a></li>
+                <li><a onclick="verifyLoginShoppingCart()">Shopping Cart</a></li>
+                <li><a href="Faqs.html">FAQs</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li id="accountrowbtn"><a onclick="verifyLoginMyAccount()">My Account</a></li>
+                <li id="loginrowbtn"><a id="loginbtn" href="Login.html">Login/Sign Up</a></li>
+                <li id="logoutrowbtn"><a id="logoutbtn" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+                <div id="NavMenu" class="navbar">
+                    <div class="dropdown">
+                        <button id="btnDropbtn" class="dropbtn">
+                            Menu
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div id="dropdown-content" class="dropdown-content">
+                            <div class="header">
+                                <div style="font-weight:bold;font-size:20px;">DINE - SNACKS - WE DELIVER! (02)579.3268</div>
+                            </div>
+                            <div class="row">
+                                <div class="column">
+                                    <h3 style="margin-bottom:5px;">Sandwiches</h3>
+                                    <a href="#" id="68" onclick="showitem(this.id)">Burger</a>
+                                    <a href="#" id="69" onclick="showitem(this.id)">Cheese Burger</a>
+                                    <a href="#" id="70" onclick="showitem(this.id)">Club House</a>
+                                    <a href="#" id="71" onclick="showitem(this.id)">Hotdog Sandwich</a>
+                                </div>
+                                <div class="column">
+                                    <h3 style="margin-bottom:5px;">Desserts</h3>
+                                    <a href="#" id="19" onclick="showitem(this.id)">Fruit Salad</a>
+                                    <a href="#" id="21" onclick="showitem(this.id)">Buco Pandan</a>
+                                    <a href="#" id="22" onclick="showitem(this.id)">Halo-Halo</a>
+                                    <a href="#" id="23" onclick="showitem(this.id)">Leche Flan</a>
+                                    <a href="#" id="25" onclick="showitem(this.id)">Mais Con Yelo</a>
+                                    <a href="#" id="26" onclick="showitem(this.id)">Saba Con Yelo</a>
+
+                                </div>
+
+                                <div class="column">
+                                    <h3 style="margin-bottom:5px;">Appetizers</h3>
+                                    <a href="#" id="1" onclick="showitem(this.id)">Bramps' Nachos</a>
+                                    <a href="#" id="2" onclick="showitem(this.id)">Calamares & Onion Rings</a>
+                                    <a href="#" id="3" onclick="showitem(this.id)">Cheese Sticks</a>
+                                    <a href="#" id="4" onclick="showitem(this.id)">Fish & Fries</a>
+                                    <a href="#" id="5" onclick="showitem(this.id)">Crispy Tofu</a>
+                                    <a href="#" id="6" onclick="showitem(this.id)">French Fries</a>
+                                </div>
+                                <div class="column">
+                                    <h3 style="margin-bottom:5px;">Group Meals</h3>
+                                    <a href="#" id="27" onclick="showitem(this.id)">Lumpiang Shanghai</a>
+                                    <a href="#" id="28" onclick="showitem(this.id)">Sweet & Sour Chicken</a>
+                                    <a href="#" id="29" onclick="showitem(this.id)">Sweet & Sour Fish Fillet</a>
+                                    <a href="#" id="30" onclick="showitem(this.id)">Shrimp Sinigang</a>
+                                    <a href="#" id="31" onclick="showitem(this.id)">Lechong Kawali</a>
+                                    <a href="#" id="33" onclick="showitem(this.id)">Flaming Chicken</a>
+                                    <a href="#" id="34" onclick="showitem(this.id)">Whole Chicken</a>
+                                    <a href="#" id="35" onclick="showitem(this.id)">Kare-Kare</a>
+                                    <a href="#" id="36" onclick="showitem(this.id)">Crispy Pata</a>
+                                    <a href="#" id="37" onclick="showitem(this.id)">Chopsuey</a>
+                                    <a href="#" id="38" onclick="showitem(this.id)">Pork Sisig</a>
+                                    <a href="#" id="39" onclick="showitem(this.id)">Boneless Bangus</a>
+                                    <a href="#" id="40" onclick="showitem(this.id)">Canton</a>
+                                    <a href="#" id="41" onclick="showitem(this.id)">Bihon Guisado</a>
+
+
+                                </div>
+
+                                <div class="column">
+                                    <h3 style="margin-bottom:5px;">Rice Meals</h3>
+                                    <a href="#" id="58" onclick="showitem(this.id)">Bacsilog</a>
+                                    <a href="#" id="60" onclick="showitem(this.id)">Bangsilog</a>
+                                    <a href="#" id="61" onclick="showitem(this.id)">Hotsilog</a>
+                                    <a href="#" id="62" onclick="showitem(this.id)">Alaminos Longsilog</a>
+                                    <a href="#" id="63" onclick="showitem(this.id)">Porkchop Silog</a>
+                                    <a href="#" id="64" onclick="showitem(this.id)">Shangsilog</a>
+                                    <a href="#" id="65" onclick="showitem(this.id)">Spamsilog</a>
+                                    <a href="#" id="66" onclick="showitem(this.id)">Tapsilog</a>
+                                    <a href="#" id="67" onclick="showitem(this.id)">Tosilog</a>
+                                </div>
+
+                                <div class="column">
+                                    <h3 style="margin-bottom:5px;">Beverages</h3>
+                                    <a href="#" id="7" onclick="showitem(this.id)">Bottled Water</a>
+                                    <a href="#" id="8" onclick="showitem(this.id)">Calamansi Juice</a>
+                                    <a href="#" id="9" onclick="showitem(this.id)">Coffee</a>
+                                    <a href="#" id="10" onclick="showitem(this.id)">Ice Tea</a>
+                                    <a href="#" id="11" onclick="showitem(this.id)">Mango Juice</a>
+                                    <a href="#" id="12" onclick="showitem(this.id)">Pineapple Juice</a>
+                                    <a href="#" id="14" onclick="showitem(this.id)">Sago't Gulaman</a>
+                                    <a href="#" id="17" onclick="showitem(this.id)">Soda in Can</a>
+                                    <a href="#" id="18" onclick="showitem(this.id)">Beer</a>
+
+                                    <h3 style="margin-bottom:5px;margin-top:20px;">Others </h3>
+                                    <a href="#" id="42" onclick="showitem(this.id)">Plain Rice</a>
+                                    <a href="#" id="45" onclick="showitem(this.id)">Garlic Rice</a>
+                                    <a href="#" id="46" onclick="showitem(this.id)">Lugaw</a>
+                                    <a href="#" id="47" onclick="showitem(this.id)">Boiled Egg</a>
+                                </div>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="ItemDisplay" class="menuitemdisplay" hidden>
+                    <div style="font-weight:bold;font-size:20px;background-color:#25cf90;text-align: center; font-family: Arial;">DINE - SNACKS - WE DELIVER! (02)579.3268</div>
+                    <br />
+                    <ul style="list-style-type:none; padding:0; margin: auto; text-align: center; margin-bottom:100px;">
+                        <li style="margin: auto;">
+                            <a id="ItemImages">
+                                <span><img style="object-fit: cover;" id="outMenuItemImage" height="300" width="300" /></span>
+                            </a>
+                        </li>
+                        <li style="margin-top: 30px;border-top:solid #00541f;border-bottom:solid #00541f;">
+                            <p id="outMenuItemName">-</p>
+
+                        </li>
+                        <li style="border-bottom:solid #00541f;">
+                            <p id="outMenuItemPrice">-</p>
+                        </li>
+                        <li style="border-bottom:solid #00541f">
+                            <p id="outMenuItemDescription">-</p>
+                        </li>
+
+                        <li style="align-content:center; align-items:center; text-align:center;">
+                            <p id="txtMenuItemQty" style="white-space: nowrap;" for="numMenuItemQty">-</p>
+                            <span id="numMenuItemQty" style="display:inline-block;white-space: nowrap;"><input id="outMenuItemQty" style="" type="number" min="1" max="99" value="1" oninput="(!validity.rangeOverflow||(value=99)) && (!validity.rangeUnderflow||(value=1)) &&(!validity.stepMismatch||(value=parseInt(this.value)));"></span>
+                        </li>
+
+                        <li style="margin-top: 25px;">
+                            <button style="white-space: nowrap;" id="btnAddToCart" class="button" onclick="btnAddtoCart_OnClick()">Add to Cart</button>
+                            <p id="cartnotif" class="fit; addcarttext">Added to cart!</p>
+                        </li>
+                        <li style="margin-top: 25px;">
+                            <p id="BGSpacing">&nbsp</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="slideshow-container">
+                    <div style="text-align:center; margin-top:30px;">
+                        <b style="font-size:25px;font-size:3vw;text-align:center;color:black;">See our branches.</b>
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">1 / 3</div>
+                        <img src="myimages/FrontImage1.jpg" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">2 / 3</div>
+                        <img src="myimages/FrontStore.JPG" style="width:100%">
+                    </div>
+
+                    <div class="mySlides fade">
+                        <div class="numbertext">3 / 3</div>
+                        <img src="myimages/InsideStore.JPG" style="width:100%">
+                    </div>
+
+                    <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                    <a class="next" onclick="plusSlides(1)">&#10095;</a>
+
+                    <div style="text-align:center; margin-top:30px;">
+                        <b style="font-size:25px;font-size:3vw;text-align:center;color:black;">Visit us in our store now!</b>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/ricesuncheese" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://facebook.com/Risen.Cheese/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/ricemelonsuncheese/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- The 'async' attribute is needed for RequireJS to work in a Windows app -->
+    <script type="text/javascript" data-main="scripts/startup" src="lib/require.2.1.8.js" async></script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        var dataMenuItemId = "";
+        var dataMenuItemImage = "";
+        var dataMenuItemName = "";
+        var dataMenuItemQty = "";
+        var dataMenuItemPrice = "";        
+        var dataMenuItemDescription = "";
+
+        function showitem() {            
+            document.getElementById("dropdown-content").addEventListener('click', function (e) {
+                document.getElementById("outMenuItemQty").value = 1;
+                var varItem = e.target.id;                
+                var x = document.getElementById("cartnotif");
+                if (x.style.display === "block") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "none";
+                }
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://192.168.1.6/Bramps/Service.svc/GetItemListParam',
+                    data:
+                    '{' +
+                    '"ItemId":"' + varItem + '"' +
+                    '}',
+                    contentType: 'application/json;charset=utf-8',
+                    dataType: 'json',
+                    processdata: true,
+                    success: function (result) {
+                        var varResult = '';
+                        var varArResult = result.GetItemListParamResult;
+                        for (var intCtr in varArResult) {
+                            varResult += varArResult[intCtr].MenuItemId + ' ' + varArResult[intCtr].MenuItemName + ' ' + varArResult[intCtr].MenuItemPrice + ' ' + varArResult[intCtr].MenuItemDescription + '\n';
+                        }
+                        dataMenuItemId = varArResult[intCtr].MenuItemId;
+                        dataMenuItemName = varArResult[intCtr].MenuItemName;
+                        dataMenuItemPrice = varArResult[intCtr].MenuItemPrice;
+                        dataMenuItemDescription = varArResult[intCtr].MenuItemDescription;
+                        dataMenuItemImage = "myimages/" + dataMenuItemName + ".png";
+                        document.getElementById("outMenuItemImage").src = dataMenuItemImage;
+                        document.getElementById("outMenuItemName").textContent = dataMenuItemName;
+                        document.getElementById("outMenuItemPrice").textContent = "Price: " + dataMenuItemPrice;
+                        document.getElementById("outMenuItemDescription").textContent = dataMenuItemDescription;
+                        document.getElementById("txtMenuItemQty").textContent = "QTY:";                  
+                        document.getElementById("ItemDisplay").style.display = "block";
+                    },
+                    error: function (msg) {
+                        showitem();
+                    },
+                    complete: function () {
+                    }
+                });
+            }, false);
+        }
+
+        function btnAddtoCart_OnClick() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                    var x = document.getElementById("cartnotif");
+                    if (x.style.display === "none") {
+                        x.style.display = "block";
+                    } else {
+                        x.style.display = "block";
+                    }
+                    dataMenuItemQty = document.getElementById("outMenuItemQty").value;
+                    var name = dataMenuItemName;
+                    var datastore = { ItemId: dataMenuItemId, ItemImage: dataMenuItemImage, ItemName: dataMenuItemName, ItemPrice: dataMenuItemPrice, ItemDescription: dataMenuItemDescription, ItemQty: dataMenuItemQty };
+                    var data = JSON.stringify(datastore);
+                    localStorage.setItem(name, data);
+            }
+            else
+            {
+                location.href = "Login.html";
+            }
+        }
+
+    </script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            } 
+        }
+    </script>
+
+    <script>
+        function verifyLoginShoppingCart()
+        {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Shoppingcart.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function verifyLoginMyAccount() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Account.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function logout() {
+            sessionStorage.clear();
+            localStorage.clear();
+            location.href = "Home.html";
+        }
+
+        var onstart;
+        function clearCart() {            
+            if (sessionStorage.hasOwnProperty("Startup"))
+            {
+            }
+            else
+            {
+                onstart = 0;
+                sessionStorage.setItem("Startup", onstart);
+                localStorage.clear();
+            }
+        }
+
+        function showLogin() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                document.getElementById("accountrowbtn").style.display = "block";
+                document.getElementById("logoutrowbtn").style.display = "block";
+                document.getElementById("loginrowbtn").style.display = "none";
+            }
+            else {
+                document.getElementById("accountrowbtn").style.display = "none";
+                document.getElementById("logoutrowbtn").style.display = "none";
+                document.getElementById("loginrowbtn").style.display = "block";
+            }
+        }
+    </script>
+</body>
+</html>

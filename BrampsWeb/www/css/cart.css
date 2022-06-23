@@ -1,0 +1,20 @@
+﻿.float-container {
+    padding: 20px;
+}
+
+.float-child {
+    width: 50%;
+    float: left;
+    padding: 20px;
+}
+
+.addcarttext {
+    color: #008020;
+    font-size: small;
+    font-weight: bold;
+    display: none;
+}
+
+.menuitemdisplay {
+    background-color: #f4ffed;
+}

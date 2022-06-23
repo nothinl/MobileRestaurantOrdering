@@ -1,0 +1,178 @@
+﻿<!DOCTYPE HTML>
+<!--
+	Phantom by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+<head>
+    <title>Bramps</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <link rel="stylesheet" href="assets/w3.css" />
+    <link rel="shortcut icon" type="image/jpg" href="myimages/favicon.ico" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload" onload="showLogin()">
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <div class="inner">
+
+                <!-- Logo -->
+                <a href="Home.html" class="logo">
+                    <span class="symbol"><img src="myimages/Bramps Logo Transparent.png" alt="" /></span><span class="title">Bramps</span>
+                </a>
+
+                <!-- Nav -->
+                <nav>
+                    <ul>
+                        <li><a href="#menu">Menu</a></li>
+                    </ul>
+                </nav>
+
+            </div>
+        </header>
+
+        <!-- Menu -->
+        <nav id="menu">
+            <h2>Menu</h2>
+            <ul>
+                <li><a href="Home.html">Menu</a></li>
+                <li><a onclick="verifyLoginShoppingCart()">Shopping Cart</a></li>
+                <li><a href="Faqs.html">FAQs</a></li>
+                <li><a href="About.html">About Us</a></li>
+                <li id="accountrowbtn"><a onclick="verifyLoginMyAccount()">My Account</a></li>
+                <li id="loginrowbtn"><a id="loginbtn" href="Login.html">Login/Sign Up</a></li>
+                <li id="logoutrowbtn"><a id="logoutbtn" onclick="logout()">Logout</a></li>
+            </ul>
+        </nav>
+
+        <!-- Main -->
+        <div id="main">
+            <div class="inner">
+                <h1>About Bramps</h1>
+                <p>Bramps is a restaurant that aims to provide delicious foods and high quality services in the Philippines. A group of students founded this restaurant as way to earn and provide the best quality foods that competes with other restaurants. We provide low priced delicious foods with specialty in burning chickens and sizzling sisigs.</p>
+                <p>Our main branch is located in Laguna, Philippines at the moment.</p>
+            </div>
+            <div class="slideshow-container">
+                <div style="text-align:center; margin-top:30px;">
+                    <b style="font-size:25px;font-size:3vw;text-align:center;color:black;">See our branches.</b>
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext"></div>
+                    <img src="myimages/Bramps_night.jpg" style="width:100%">
+                </div>
+
+                <div class="mySlides fade">
+                    <div class="numbertext"></div>
+                    <img src="myimages/Bramps_night2.jpg" style="width:100%">
+                </div>
+                <div style="text-align:center; margin-top:30px;">
+                    <b style="font-size:25px;font-size:3vw;text-align:center;color:black;">Visit us in our store now!</b>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <div class="inner">
+                <section>
+                    <h2>Follow</h2>
+                    <ul class="icons">
+                        <li><a href="https://twitter.com/ricesuncheese" class="icon brands style2 fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="https://facebook.com/Risen.Cheese/" class="icon brands style2 fa-facebook-f"><span class="label">Facebook</span></a></li>
+                        <li><a href="https://www.instagram.com/ricemelonsuncheese/" class="icon brands style2 fa-instagram"><span class="label">Instagram</span></a></li>
+                    </ul>
+                </section>
+                <ul class="copyright">
+                    <li>&copy; Untitled. All rights reserved</li>
+                    <li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
+                </ul>
+            </div>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!-- The 'async' attribute is needed for RequireJS to work in a Windows app -->
+    <script type="text/javascript" data-main="scripts/startup" src="lib/require.2.1.8.js" async></script>
+
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script>
+        function verifyLoginShoppingCart() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Shoppingcart.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function verifyLoginMyAccount() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                location.href = "Account.html";
+            }
+            else {
+                location.href = "Login.html";
+            }
+        }
+        function logout() {
+            sessionStorage.clear();
+            localStorage.clear();
+            location.href = "Home.html";
+        }
+
+        function showLogin() {
+            if (sessionStorage.hasOwnProperty("Email")) {
+                document.getElementById("accountrowbtn").style.display = "block";
+                document.getElementById("logoutrowbtn").style.display = "block";
+                document.getElementById("loginrowbtn").style.display = "none";
+            }
+            else {
+                document.getElementById("accountrowbtn").style.display = "none";
+                document.getElementById("logoutrowbtn").style.display = "none";
+                document.getElementById("loginrowbtn").style.display = "block";
+            }
+        }
+    </script>
+    <script>
+        var slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+            showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+            showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+            var slideIndex = 0;
+            showSlides();
+
+            function showSlides() {
+                var i;
+                var slides = document.getElementsByClassName("mySlides");
+                for (i = 0; i < slides.length; i++) {
+                    slides[i].style.display = "none";
+                }
+                slideIndex++;
+                if (slideIndex > slides.length) { slideIndex = 1 }
+                slides[slideIndex - 1].style.display = "block";
+                setTimeout(showSlides, 2000); // Change image every 2 seconds
+            }
+        }
+    </script>
+</body>
+</html>
